@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎨 Artistic Style Transfer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    form {
+      background-color: #f8f8f8;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    input[type="file"] {
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .output-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .output-container h2 {
+      margin-bottom: 15px;
+    }
+
+    .output-container img {
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+      border: 4px solid #4CAF50;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Apply Artistic Filter</h1>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required>
+    <br>
+    <button type="submit">Stylize</button>
+  </form>
+
+  {% if output %}
+    <div class="output-container">
+      <h2>Stylized Output:</h2>
+      <img src="{{ output }}" alt="Stylized Image">
+    </div>
+  {% endif %}
+</body>
+</html>
